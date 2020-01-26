@@ -1,0 +1,11 @@
+# Unpinned requirements
+# See https://www.kennethreitz.org/essays/a-better-pip-workflow to learn more
+# about this workflow
+
+# Project dependencies
+Flask
+python-dotenv
+twilio
+
+# Production
+gunicorn
