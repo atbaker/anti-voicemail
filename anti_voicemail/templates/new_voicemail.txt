@@ -1,0 +1,5 @@
+You have a new voicemail from {{ from_number }}:
+
+"{{ transcription }}"
+
+Recording: {{ recording_url }}
