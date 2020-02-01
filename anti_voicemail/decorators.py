@@ -24,7 +24,7 @@ def validate_twilio_request(f):
         # when proxying requests to our app. So if the request seemed invalid
         # on our first try, try again with an https version of the URL
         if not request_valid:
-            validator.validate(
+            request_valid = validator.validate(
                 request.url.replace('http://', 'https://'),
                 request.form,
                 request.headers.get('X-TWILIO-SIGNATURE', '')
@@ -32,9 +32,7 @@ def validate_twilio_request(f):
 
         # Continue processing the request if it's valid (or we're in development
         # or testing). Otherwise, return a 403 error if it's not
-        if request_valid \
-            or app.config['TESTING'] \
-            or app.config['ENV'] == 'development':
+        if request_valid or app.config['TESTING']
             return f(*args, **kwargs)
         else:
             return abort(403)
