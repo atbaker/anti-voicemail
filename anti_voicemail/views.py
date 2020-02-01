@@ -52,7 +52,7 @@ def record_message():
     # Say a quick prompt and then start the recording
     response.say('Please record your message after the beep.', voice='Polly.Matthew')
     response.record(
-        max_length=300, # Max length of 5 minutes
+        max_length=115, # Max length of nearly two minutes
         transcribe=True,
         transcribe_callback=url_for('send_transcription')
     )
